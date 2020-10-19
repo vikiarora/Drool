@@ -11,29 +11,10 @@ import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.AgendaFilter;
 
 import com.sample.contract.Contract;
-import com.sample.contract.ReadContractJSON;
 
-/**
- * This is a sample class to launch a rule.
- */
-public class DroolsTest {
+public class AwardContractService {
 
-	ReadContractJSON rcj = new ReadContractJSON();
-	private ArrayList<Contract> contractList = new ArrayList<Contract>();
-
-	public void loadContractData() {
-		rcj.readJSONFile();
-		contractList = rcj.getContractList();
-	}
-	public void printContractData() {
-	    Iterator<Contract> it = contractList.iterator();
-	     while(it.hasNext()){
-	    	 Contract currContract = (Contract) it.next();
-	        System.out.println(currContract);
-	     }
-	}
-	
-	public void applyRules() {
+	public void applyAwardContractRules(ArrayList<Contract> contractList) {
         try {
             // load up the knowledge base
 	        KieServices ks = KieServices.Factory.get();
@@ -58,31 +39,4 @@ public class DroolsTest {
             t.printStackTrace();
         }
 	}
-	
-    public static final void main(String[] args) {
-    	
-    	DroolsTest drl = new DroolsTest();
-    	drl.loadContractData();
-    	//drl.printContractData();
-    	drl.applyRules();
-    }
-
-    
-    
-    
-    
-    public static class Message {
-
-
-		//Limit Variables
-		public static final float MAX_CAPACITY = 82;
-		public static final String cityPreferred = "London"; 
-		
-		//Transaction Varaibles
-		public static   float  LEFT_CAPACITY = 0;
-
-    }
-
-    
-    
 }
