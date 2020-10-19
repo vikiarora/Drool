@@ -1,0 +1,48 @@
+package com.sample.rules
+ 
+import com.sample.DroolsTest.Message;
+import com.sample.contract.Contract;
+import java.lang.Float;
+
+global java.lang.String testMsg;
+global Float totalCapacity; 
+
+rule "Rule_FilterByCity"
+
+    when
+        $contract : Contract( $contractId:contractId, $capacity:capacity, $price:price, city != Message.cityPreferred ) 
+    then 
+        //System.out.println("Inside Contract Test0 : Id" + $contractId +"::" + $capacity +"::"+ $price);
+        //System.out.println("Inside Contract Test0");
+        retract( $contract );
+        
+end
+
+rule "Rule_AllocateByPrice"
+	
+    when
+        $contract : Contract($contractId:contractId, $capacity:capacity, $price:price ) 
+        not Contract( price < $price)
+    then
+    	if (Message.LEFT_CAPACITY == 0) System.out.println("\nContract Awarded based upon Minimum Price to meet Maximum Capacity of " + 
+    	Message.MAX_CAPACITY );
+		//System.out.println(Message.MAX_CAPACITY + " Capacity : Left Capacity " + Message.LEFT_CAPACITY);	
+		float newCapacity =  $capacity;
+		if ((Message.LEFT_CAPACITY + newCapacity) > Message.MAX_CAPACITY) newCapacity =  Message.MAX_CAPACITY - Message.LEFT_CAPACITY;	
+    	if (Message.LEFT_CAPACITY < Message.MAX_CAPACITY) System.out.println("Id" + $contractId +"::" + newCapacity +"::"+ $price);
+    	Message.LEFT_CAPACITY = Message.LEFT_CAPACITY + $capacity; 
+        retract( $contract );
+        
+end
+
+rule "ContractTest2"
+ 
+    when
+        $contract : Contract($contractId:contractId, $capacity:capacity, $price:price )
+        not Contract( capacity < $capacity)
+    then
+        System.out.println("Contract list sorted with Capacity : Contractor Id - " + $contractId +"::" + $capacity +"::"+ $price); 
+        retract( $contract );
+        
+end
+

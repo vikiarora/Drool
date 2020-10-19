@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="DROOLS/Drools"/>
+	<classpathentry kind="lib" path="C:/WIP/Solutioning/DROOLS/download_Drools/droolsjbpm-tools-distribution-7.43.1.Final/binaries/jbpm-audit-7.43.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/WIP/Solutioning/DROOLS/download_Drools/droolsjbpm-tools-distribution-7.43.1.Final/binaries/jbpm-bpmn2-7.43.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/WIP/Solutioning/DROOLS/download_Drools/droolsjbpm-tools-distribution-7.43.1.Final/binaries/jbpm-flow-7.43.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/WIP/Solutioning/DROOLS/download_Drools/droolsjbpm-tools-distribution-7.43.1.Final/binaries/jbpm-flow-builder-7.43.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/WIP/Solutioning/DROOLS/download_Drools/droolsjbpm-tools-distribution-7.43.1.Final/binaries/jbpm-query-jpa-7.43.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/WIP/Solutioning/DROOLS/download_Drools/Jar/json-simple-1.1.1.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

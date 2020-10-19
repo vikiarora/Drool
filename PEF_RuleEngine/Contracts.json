@@ -1,0 +1,34 @@
+[
+    {
+        "contract": {
+            "contractId": "Con001",
+            "capacity": "5",
+            "price": "23",
+            "city": "London"
+        }
+    },
+    {
+        "contract": {
+            "contractId": "Con002",
+            "capacity": "45",
+            "price": "12",
+            "city": "Edinburgh"
+        }
+    },
+    {
+        "contract": {
+            "contractId": "Con003",
+            "capacity": "35",
+            "price": "18",
+            "city": "London"
+        }
+    },
+    {
+        "contract": {
+            "contractId": "Con004",
+            "capacity": "65",
+            "price": "56",
+            "city": "London"
+        }
+    }
+]
