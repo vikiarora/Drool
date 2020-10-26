@@ -1,7 +1,7 @@
 package com.sample.rules
  
-import com.sample.AwardContractMain.ControlParameters;
-import com.sample.contract.Contract;
+import com.pef.AwardContractMain.ControlParameters;
+import com.pef.contract.Contract;
 import java.lang.Float;
 
 global java.lang.String testMsg;
@@ -24,12 +24,15 @@ rule "Rule_AllocateByPrice"
         $contract : Contract($contractId:contractId, $capacity:capacity, $price:price ) 
         not Contract( price < $price)
     then
-    	if (ControlParameters.LEFT_CAPACITY == 0) System.out.println("\nContract Awarded based upon Minimum Price to meet Total Capacity of " + 
-    	ControlParameters.MAX_CAPACITY );
+    	if (ControlParameters.LEFT_CAPACITY == 0){
+    		 System.out.println("\nContract Awarded based upon Minimum Price to meet Total Capacity of " + 
+    			ControlParameters.MAX_CAPACITY );
+    		System.out.println("Contract_ID    Capacity     Price");
+    	}
 		//System.out.println(ControlParameters.MAX_CAPACITY + " Capacity : Left Capacity " + ControlParameters.LEFT_CAPACITY);	
 		float newCapacity =  $capacity;
 		if ((ControlParameters.LEFT_CAPACITY + newCapacity) > ControlParameters.MAX_CAPACITY) newCapacity =  ControlParameters.MAX_CAPACITY - ControlParameters.LEFT_CAPACITY;	
-    	if (ControlParameters.LEFT_CAPACITY < ControlParameters.MAX_CAPACITY) System.out.println("Id" + $contractId +"::" + newCapacity +"::"+ $price);
+    	if (ControlParameters.LEFT_CAPACITY < ControlParameters.MAX_CAPACITY) System.out.println("Id" + $contractId +"   ::   " + newCapacity +"   ::    "+ $price);
     	ControlParameters.LEFT_CAPACITY = ControlParameters.LEFT_CAPACITY + $capacity; 
         retract( $contract );
         

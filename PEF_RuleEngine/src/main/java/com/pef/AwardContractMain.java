@@ -1,4 +1,4 @@
-package com.sample;
+package com.pef;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,8 +10,8 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.AgendaFilter;
 
-import com.sample.contract.Contract;
-import com.sample.contract.ReadContractJSON;
+import com.pef.contract.Contract;
+import com.pef.contract.ReadContractJSON;
 
 /**
  * This is a sample class to launch a rule.
@@ -54,7 +54,7 @@ public class AwardContractMain {
 
 
 		//Limit Variables
-		public static final float MAX_CAPACITY = 82;
+		public static final float MAX_CAPACITY = 55;
 		public static final String cityPreferred = "London"; 
 		
 		//Transaction Varaibles

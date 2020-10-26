@@ -1,4 +1,4 @@
-package com.sample.contract;
+package com.pef.contract;
 import org.json.simple.JSONObject;
 
 public class Contract {

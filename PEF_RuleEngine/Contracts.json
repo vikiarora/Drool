@@ -3,7 +3,7 @@
         "contract": {
             "contractId": "Con001",
             "capacity": "5",
-            "price": "23",
+            "price": "33",
             "city": "London"
         }
     },
